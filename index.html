@@ -3,68 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=>, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+    <link type="text/css" rel="stylesheet" href="styles/base.css">
+    <link type="text/css" rel="stylesheet" href="styles/index.css">
     <title>Document</title>
 </head>
 <body>
+<div id="content">
     <header>
-        <nav>
-            <img class="logo" src="images/baby_logo.JPG">
-            <a href="/dot_dev">About Me</a>
-            <a href="dot_dev/myapproach.html">My Approach</a>
-            <div class="favorites">
-                <p class="fav-title">Portfolio favorites:</p>
-                <a href="/dot_dev/gitgud.html">git gud</a>
-                <a href="#">erlang/OTP fulfillment</a>
-            </div>
-        </nav>
+        <div id="nav-container">
+            <nav>
+                <a href="/dot_dev" class="logo-container">
+                    <img class="logo" src="images/baby_logo.JPG">
+                </a>
+                <a class="hlink" href="/dot_dev">About Me</a>
+                <a class="hlink" href="#">Portfolio</a>
+                <a class="hlink" href="dot_dev/myapproach.html">My Approach</a>
+                <div class="favorites">
+                    <p class="fav-title">Portfolio favorites:</p>
+                    <a class="hlink" href="/dot_dev/gitgud.html">git gud</a>
+                    <a class="hlink" href="#">erlang/OTP fulfillment</a>
+                </div>
+            </nav>
+        </div>
     </header>
     <main>
         <h1 id="title">About Me</h1>
         <div class="img-side-text">
             <img id="headshot" src="images/headshot.png">
-            <p class="pitch">What I love about programming:
-                I'm a bit of a nerd about functional programming. I think one of the most fascinating problems about any coding situation is the challenge of [writing good code while communicating to humans what the code does](my approach URL) and find that problem endlessly delightful to solve. I am simply beside myself whenever I get to learn a new technique or something I have been doing for a while clicks. Good code is exciting and even sometimes beautiful to me intrinsically, let alone the incredible things you can build with it. [I am also deeply passionate about programming education](GitGud URL)
-                Okay, yes, I am a total nerd, what else is there to know me:
+            <p class="pitch">
+                I'm a bit of a dork about functional programming. I think one of the most fascinating problems about any coding situation is the challenge of [writing good code while communicating to humans what the code does](my approach URL) and find that problem endlessly delightful to solve. I am simply beside myself whenever I get to learn a new technique or something I have been doing for a while clicks. Good code is exciting and even sometimes beautiful to me intrinsically, let alone the incredible things you can build with it. [I am also deeply passionate about programming education](GitGud URL)
+                <br>Okay, yes, I am a total nerd, but there are a couple other things to know about me
                 I have a 2.5 YO child and one more coming very soon, which keeps me super busy! My favoirte device is my e-reader, through which I enjoy books of all kinds and a generous smattering of manga. My spouse and I have recently been watching reality TV together, though previously we've had anime phases, early 2000s drama phases, indie gaming phases, and too exhausted to do anything phases (thank you newborn). We also enjoy cooking together and spending time at the park.</p>
         </div>
         <div class="link-bar">
-            <a>My Approach</a>
-            <a>Git Gud</a>
-            <a>Fulfillment</a>
+            <a href="/dot_dev/myapproach.html">
+                <p>My Approach</p>
+            </a>
+            <a href="/dot_dev/gitgud.html">
+                <p>Git Gud</p>
+            </a>
+            <a href="#">
+                <p>Erlang/OTP</p>
+            </a>
         </div>
         <img id="family-photo" src="images/familyphoto.png">
-        <ul class="interests">
-            <li>
+        <div class="interests">
+            <div>
                 <h4 class="title">Hobbies</h4>
-                <p>I've been playing around with arduinos lately which has been a great deal of fun. I also accidentally got into incrimental games recently, which is an extremely dangerous passtime.
-                </p>
-            </li>
-            <li>
+                <p>I've been playing around with arduinos lately which has been a great deal of fun. I also accidentally got into incrimental games recently, which is an extremely dangerous passtime. My hobbies tend to shift overtime, since first drafting this I have also gotten into Deep Rock Galactic with friends and have been helping organize small get togethers for my local queer community.</p>
+            </div>
+            <div>
                 <h4 class="title">Interests</h4>
                 <p>One of my primary interests right now is the intersection of linguistics and programming. (I already warned you, I am a nerd) Recently I sat with one of my university's linguistics professors, and together we observed that often CS is applied to the field of linguistics, but not the other way around. As an example of what this might mean, in language you can have easy to understand and hard to understand sentences which are both gramatically correct, and we have frameworks for understanding the structure of a well constructed sentence. I wonder if we have as well defined frameworks for understanding the structure of a well constructed code block.</p>
-            </li>
-        </ul>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="socials">
-            <a href="https://linkedin.com" target="_blank">
+            <a class="social_logo" href="https://linkedin.com" target="_blank">
                 <img src="images/linkedin.png" alt="linkedin">
             </a>
-            <a href="https://github.com" target="_blank">
+            <a class="social_logo" href="https://github.com" target="_blank">
                 <img src="images/GitHu.png" alt="github">
             </a>
-            <a href="https://discord.com" target="_blank">
+            <a class="social_logo" href="https://discord.com" target="_blank">
                 <img src="images/discord.png" alt="discord">
             </a>
         </div>
         <div class="me">
-            <img class="logo" src="images/baby_logo.JPG">
+            <div class="footer-logo-c">
+                <img class="footer-logo" src="images/baby_logo.JPG">
+            </div>
             <h5>Jonah Deal</h5>
             <p>2023</p>
+            <a class="hlink" href="dot_dev/site_plan.html">Site Plan</a>
         </div>
         <div class="contact">
-            <h4>Contact me</h4>
+            <h4>Contact Me</h4>
             <ul>
                 <li>801-555-5555</li>
                 <li>r.jonah.deal@gmail.com</li>
@@ -72,5 +87,6 @@
             </ul>
         </div>
     </footer>
+</div>
 </body>
 </html>
