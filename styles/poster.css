@@ -1,0 +1,70 @@
+#content {
+    position: relative;
+    width: 1200px;
+    height: 1200px;
+    border-style:solid;
+    border-width: 6px;
+    border-color: green;
+}
+
+img {
+    border-style:solid;
+    border-width: 6px;
+    width: 200px;
+    height: 300px;
+    border-color: yellowgreen;
+}
+.poster img:hover {
+    border-color: yellow;
+}
+#enlargedPoster {
+    display: none;
+    position: absolute;
+    top: 0px; left: 0px;
+    z-index: -1;
+    text-align: center;
+    width: 1200px;
+    height: 1200px; 
+}
+@keyframes enlarge {
+    from{
+    }
+    to {
+        transform: scale(2) translate(var(--endx), var(--endy));
+
+    }
+}
+#enlargedImage {
+    --startx: 300;
+    --starty: 0;
+    --endx: 0;
+    --endy: 0;
+    position: absolute;
+    left: var(--startx);
+    top: var(--starty);
+    align-self: center;
+    /* width: 400px;
+    height: 600px; */
+    z-index: 1;
+    animation-name: enlarge;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+#target {
+    position: absolute;
+    display: block;
+    /* visibility: hidden; */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 1px;
+    height: 1px;
+    z-index: 100;
+    background-color: blue;
+}
+#keytester {
+    position:relative;
+    left: 900px;
+}
