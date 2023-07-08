@@ -78,10 +78,11 @@
     }
     100% {
         visibility: visible;
-        transform: scale(2) translate(var(--deltaX), var(--deltaY));
+        transform: scale(var(--scale)) translate(var(--deltaX), var(--deltaY));
     }
 }
 .animation {
+    --scale: 2;
     --deltaX: 0; --deltaY: 0;
     animation-name: enlarge;
     animation-duration: .7s;
