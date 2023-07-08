@@ -42,7 +42,6 @@ function animation(E) {
     //  place the center of the element at the center of target.
     let width = start.width;
     let height = start.height;
-    const scale = 2
     // Correcting properties:
     //    window.scrollX and Y : boundingClientRect is relative to viewport.
     //    gotta correct the starting position
@@ -50,8 +49,9 @@ function animation(E) {
     //    x and y_offset: corrects for error from border and body margin
     //    height and width / 2 -- targets center of poster instead of top left corner
     //    scale: correction for how transform handles combination of scale and transform
-    const start_x = start.x - x_offset//+ window.scrollX
-    const start_y = start.y - y_offset//+ window.scrollY
+    const scale = 2
+    const start_x = start.x - x_offset + window.scrollX
+    const start_y = start.y - y_offset + window.scrollY
     let left = target.x - start_x - width /2
     let down = target.y - start_y - height/2
     console.log(target)

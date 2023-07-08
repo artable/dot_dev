@@ -1,5 +1,5 @@
 @media (max-width: 1670px){
-    body {
+    nav {
         font-size: .9em;
     }
 }
@@ -11,7 +11,6 @@
     --secondary-color: #5F7FA8;
     --accent1-color: #EAE3D1;
     --accent2-color: #F9F5EC;
-  
     --heading-font: Garamond;
     --paragraph-font: Helvetica, sans-serif;
     --link-font: 'Source Serif 4';

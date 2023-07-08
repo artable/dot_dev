@@ -6,7 +6,6 @@
     border-width: 6px;
     border-color: green;
 }
-
 img {
     border-style:solid;
     border-width: 6px;
@@ -14,11 +13,8 @@ img {
     height: 300px;
     border-color: yellowgreen;
 }
-.poster img:hover {
-    border-color: yellow;
-}
 #enlargedPoster {
-    display: block;
+    /* display: block; */
     position: absolute;
     top: 0px; left: 0px;
     z-index: -1;
@@ -52,7 +48,7 @@ img {
 #target {
     position: absolute;
     display: block;
-    /* visibility: hidden; */
+    visibility: hidden;
     left: 0;
     right: 0;
     top: 0;
