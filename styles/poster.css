@@ -27,9 +27,8 @@ img {
     height: 1200px; 
 }
 @keyframes enlarge {
-    from{
-    }
-    to {
+    0%{}
+    100% {
         transform: scale(2) translate(var(--endx), var(--endy));
 
     }
@@ -47,7 +46,7 @@ img {
     height: 600px; */
     z-index: 1;
     animation-name: enlarge;
-    animation-duration: 2s;
+    animation-duration: .7s;
     animation-fill-mode: forwards;
 }
 #target {
@@ -59,12 +58,13 @@ img {
     top: 0;
     bottom: 0;
     margin: auto;
-    width: 1px;
-    height: 1px;
+    width: 20px;
+    height: 20px;
     z-index: 100;
     background-color: blue;
 }
 #keytester {
     position:relative;
-    left: 900px;
+    top: -400px;
+    left: 1800px;
 }
