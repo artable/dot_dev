@@ -14,14 +14,11 @@ function setDeltas(E, x, y, scale) {
 }
 
 function computeScale(E) {
-    // take up max 95% of the container
+    // take up max 95% of the container either way
     let maxHeight = target.parent().height() * .95;
     let maxWidth = target.parent().width() * .95;
-    console.log(parseFloat(target.css("margin-left")));
-    console.log(`w/h: (${maxWidth}, ${maxHeight})`)
     let maxScaleX = maxWidth / E.width();
     let maxScaleY = maxHeight / E.height();
-    console.log(`maxes: (${maxScaleX}, ${maxScaleY})`)
     return Math.min(maxScaleX, maxScaleY);
 }
 function runAnimation(animated) {
@@ -34,7 +31,6 @@ function runAnimation(animated) {
     let deltaY = targetY - startY - height/2;
     deltaX /= scale;
     deltaY /= scale;
-    console.log(`(${deltaX}, ${deltaY}, [${scale}])`)
     animated.addClass("animation");
     setDeltas(animated, deltaX, deltaY, scale);
     animated.css("display", "block");
