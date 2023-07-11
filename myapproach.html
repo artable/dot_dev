@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=>, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="styles/base.css">
+    <link type="text/css" rel="stylesheet" href="styles/approach.css">
     <title>Document</title>
 </head>
 <body>
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize(
+        {
+            startOnLoad: true,
+            theme: 'dark',
+        });
+</script>
 <div id="content">
     <header>
         <div id="nav-container">
@@ -27,7 +36,40 @@
     </header>
     <main>
         <h1 id="title">My Approach</h1>
-        <img id="hero" src="images/flowdiagram.png" alt="a mermaid flow diagram">
+        <div id="flow-diagram">
+            <pre class="mermaid">
+                flowchart LR
+                    internet
+                    tls_listener((tls listener))
+                    subgraph handler [store_vehicle_info_h]
+                        direction TB
+                        get_worker[Get Worker] 
+                        -- pass PID -->
+                        give_task[Give Task]
+                        -- ok/fail -->
+                        return
+                    end
+                    workers((distributed\nworkers))
+                    return --> tls_listener
+                    get_worker --> distributor
+                    distributor --pid--> get_worker
+                    give_task --RQ_Content--> workers
+                    workers -- ok/fail--> give_task
+                    distributor((distributor))
+                    database[(Riak)]
+                    request{{<b>RQ_Content:</b><br>vehicle_uuid<br>location<br>timestamp}}
+                    internet --> request
+                    request --> tls_listener
+                    tls_listener --> get_worker
+                    workers -- RQ_Content --> database
+                    %% styling links
+                    distributor ~~~ workers
+                    distributor ~~~ workers
+                    distributor ~~~ workers
+                    distributor ~~~ workers
+                    distributor ~~~ workers
+            </pre>
+        </div>
         <section class="side-by-side">
             <div id="communication">
                 <h4 class="title">Coding is Communication</h4>
@@ -37,9 +79,12 @@
             <div class="vl-divider"></div>
             <div id="fun">
                 <h4 class="title">Coding is Fun, Especially When it Isn't</h4>
-                <img id="intercal" src="images/intercalpain.png" 
-                alt="a humorous image where a programmer gives up fighting with an 
-                antagonistic compiler and deletes their computer">
+                <div id="intercal-snippet">
+                    <iframe id="intercal-carbon"
+                    src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=seti&wt=none&l=powershell&width=680&ds=true&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Ubuntu+Mono&fs=18px&lh=91%25&si=false&es=2x&wm=false&code=artable%2540Desktop%253A%2520%7E%252Fintercal%2524%2520ick%2520hello_world.i%250AICL079I%2520PROGRAMMER%2520IS%2520INSUFFICIENTLY%2520POLITE%250A%2509ON%2520THE%2520WAY%2520TO%252017%250A%2520%2520%2520%2520%2520%2520%2520%2520CORRECT%2520SOURCE%2520AND%2520RESUBNIT%250Aartable%2540Desktop%253A%2520%7E%252Fintercal%2524%2520ick%2520hello_world.i%250AICL774I%2509RANDOM%2520COMPILER%2520BUG%250A%2509ON%2520THE%2520WAY%2520TO%252010%250A%2520%2520%2520%2520%2520%2520%2520%2520CORRECT%2520SOURCE%2520AND%2520RESUBNIT%250Aartable%2540Desktop%253A%2520%7E%252Fintercal%2524%2520ick%2520-b%2520hello_world.i%250AICL099I%2509PROGRAMMER%2520IS%2520OVERLY%2520POLITE%250A%2509ON%2520THE%2520WAY%2520TO%252017%250A%2520%2520%2520%2520%2520%2520%2520%2520CORRECT%2520SOURCE%2520AND%2520RESUBNIT%250Aartable%2540Desktop%253A%2520%7E%252Fintercal%2524%2520sudo%2520rm%2520-rf%2520%252F*"
+                    sandbox="allow-scripts allow-same-origin"> 
+                    </iframe>
+                </div>
                 <p class="content">Programming, if you explain it in words, does not sound fun. "Yes, today I spent several hours writing then debugging about 200 lines of code. Every time I solved one bug a new one appeared. When I finally finished the only indication that my code worked was a few white-against-black lines in the terminal I've been wrestling with."
                     But for me, that process can be fun if taken with the right attitude. I often joke "if your brain is broken Juuuussst right such that you can get reward chemicals from a new error message, you should learn to be a programmer." You have to take the small victories and recognize that they will add up to an impressive finished project someday.</p>
             </div>
