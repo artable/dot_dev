@@ -1,7 +1,75 @@
+/* carbon says color is: ABB8C3 */
+main {
+    width: 95%;
+    margin: 0 auto;
+}
+#flow-diagram {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.side-by-side {
+    display: grid;
+    grid-template-columns: 1fr 3em 1fr;
+    justify-content: center;
+    margin-bottom: 1em;
+    margin-left: auto; margin-right: auto;
+    width: 85%;
+}
+.header {
+    font-size: 1.7em;
+    text-align: center;
+    font-family: var(--heading-font);
+    margin: 10px;
+}
+.content {
+    font-size: 1.2em;
+}
+.vl-divider {
+    margin: 70% auto auto auto;
+    height: 90%;
+    border-left: 2px solid var(--secondary-color);
+}
+
+/* FLOAT INTERCAL SNIPPET */
+/* carbon has a funny little bug which breaks everything
+when you try to make an iframe with transparent backgrounds */
+.container {
+    /* values for code snippet float */
+    /* w and h values from iframe imbed width and height */
+    --w: 479px;
+    --h: 282px;
+    --sc : .7; 
+    position: relative;
+}
 #intercal-carbon {
-    width: 479px; 
-    height: 282px; 
-    border:0; 
-    transform: scale(.6); 
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--w); 
+    height: var(--h);
+    /* transform for placement after scaling */
+    /* .5 * (width - width/scale) */
+    --x: calc(.5 * (var(--w) - var(--w) / var(--sc)));
+    --y: calc(.5 * (var(--h) - var(--h) / var(--sc)));
+    transform: scale(var(--sc)) translate(var(--x), var(--y));
+    border-style: solid;
+    border-width: 0px;
+    border-color: #151718;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 5px 5px 0px 0px;
     overflow:hidden;
+    background-color: transparent;
+}
+
+#intercal-float {
+    width: calc(var(--w) * var(--sc)); 
+    height:calc(var(--h) * var(--sc));
+    float: left;
+    border: 0; 
+    border-radius: 15px;
+    background-color: #151718;
+    padding-bottom: 1em;
+    margin: 5px 5px 0px 0px;
 }
