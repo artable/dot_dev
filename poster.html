@@ -10,65 +10,64 @@
 <div id="content">
     <div id="enlargedPoster">
         <span id="target"></span>
-        <img id="enlargedImage" src="images/Red_square.png">
+        <img id="enlargedImage" src="images/Red_square.png" alt="test image">
     </div>
     <div class="poster">
-        <img src="images/Red_square.png", 
+        <img src="images/Red_square.png" alt="test image"
         onmouseover="animation(this)"
         onmouseleave="hide_large()">
     </div>
     <div class="poster">
-        <img src="images/Red_square.png", 
+        <img src="images/Red_square.png" alt="test image"
         onmouseover="animation(this)"
         onmouseleave="hide_large()">
     </div>
     <div class="poster">
         <img src="images/Red_square.png" id="keytester"
+        alt="test image"
         onmouseover="animation(this)"
         onmouseleave="hide_large()">
     </div>
 </div>
-</body>
 <script>
-const target = document.getElementById("target").getBoundingClientRect();
-const border = 6 // in implementation this should get a css value.
-// I suppose the offset will be somewhat obnoxious to calculate.
-const x_offset = document.getElementById("content").getBoundingClientRect().x + border
-const y_offset = document.getElementById("content").getBoundingClientRect().y + border
-function animation(E) {
-    const start = E.getBoundingClientRect();
-
-    let animated = document.getElementById("enlargedImage");
-    //  place the center of the element at the center of target.
-    let width = start.width;
-    let height = start.height;
-    // Correcting properties:
-    //    window.scrollX and Y : boundingClientRect is relative to viewport.
-    //    gotta correct the starting position
-    //    corrects for scroll
-    //    x and y_offset: corrects for error from border and body margin
-    //    height and width / 2 -- targets center of poster instead of top left corner
-    //    scale: correction for how transform handles combination of scale and transform
-    const scale = 2
-    const start_x = start.x - x_offset + window.scrollX
-    const start_y = start.y - y_offset + window.scrollY
-    let left = target.x - start_x - width /2
-    let down = target.y - start_y - height/2
-    console.log(target)
-    console.log(start)
-    left /= scale;
-    down /= scale;
-
-    animated.style.setProperty('--startx', `${start_x}px`);
-    animated.style.setProperty('--starty', `${start_y}px`);
-    animated.style.setProperty('--endx', `${left}px`);
-    animated.style.setProperty('--endy', `${down}px`);
-    document.getElementById("enlargedPoster").style.display = "block";
-}
-function hide_large() {
-    document.getElementById("enlargedPoster").style.display = "none";
-}
-</script>
-
-
+    const target = document.getElementById("target").getBoundingClientRect();
+    const border = 6 // in implementation this should get a css value.
+    // I suppose the offset will be somewhat obnoxious to calculate.
+    const x_offset = document.getElementById("content").getBoundingClientRect().x + border
+    const y_offset = document.getElementById("content").getBoundingClientRect().y + border
+    function animation(E) {
+        const start = E.getBoundingClientRect();
+    
+        let animated = document.getElementById("enlargedImage");
+        //  place the center of the element at the center of target.
+        let width = start.width;
+        let height = start.height;
+        // Correcting properties:
+        //    window.scrollX and Y : boundingClientRect is relative to viewport.
+        //    gotta correct the starting position
+        //    corrects for scroll
+        //    x and y_offset: corrects for error from border and body margin
+        //    height and width / 2 -- targets center of poster instead of top left corner
+        //    scale: correction for how transform handles combination of scale and transform
+        const scale = 2
+        const start_x = start.x - x_offset + window.scrollX
+        const start_y = start.y - y_offset + window.scrollY
+        let left = target.x - start_x - width /2
+        let down = target.y - start_y - height/2
+        console.log(target)
+        console.log(start)
+        left /= scale;
+        down /= scale;
+    
+        animated.style.setProperty('--startx', `${start_x}px`);
+        animated.style.setProperty('--starty', `${start_y}px`);
+        animated.style.setProperty('--endx', `${left}px`);
+        animated.style.setProperty('--endy', `${down}px`);
+        document.getElementById("enlargedPoster").style.display = "block";
+    }
+    function hide_large() {
+        document.getElementById("enlargedPoster").style.display = "none";
+    }
+    </script>
+</body>
 </html>
